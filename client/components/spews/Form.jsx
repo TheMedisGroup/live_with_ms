@@ -11,7 +11,7 @@ module.exports = React.createClass({
       this.refs.content.getDOMNode().value = '';
       this.refs.content.getDOMNode().blur();
     } else {
-      alert('please sign up to spew!');
+      alert('please sign up');
     }
   },
   render: function() {

@@ -5,6 +5,8 @@ var Menu = require('./Menu.jsx');
 var Router = require('react-router');
 var RouteHandler = Router.RouteHandler;
 var Uri = require('jsuri');
+var Link = Router.Link;
+import 'bootstrap/dist/css/bootstrap.css';
 
 module.exports = React.createClass({
   getDefaultProps: function() {
@@ -71,6 +73,13 @@ module.exports = React.createClass({
     var menu = this.state.showMenu ? 'show-menu' : 'hide-menu';
     return (
       <div id="app" className={menu}>
+        <div className="container">
+          <ul className="nav nav-tabs">
+            <li><Link to="search">search</Link></li>
+            <li><Link to="about">about</Link></li>
+            <li><a href="">About</a></li>
+          </ul>
+        </div>
         <Menu origin={this.props.origin} sendMenuClick={this.handleMenuClick} signedIn={this.state.signedIn} />
         {this.props.children}
       </div>
