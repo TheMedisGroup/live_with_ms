@@ -27,13 +27,11 @@ module.exports = React.createClass({
             </ul>
             <p></p>
             <p></p>
-            <div className="rollover"> <a href="http://www.marvel.com/comics"></a> </div>
-            <div className="rolloverlogo"> <a href="https://github.com/dpg5000"></a> </div>
+            <div className="rollover"> <a href="http://www.nationalmssociety.org/"></a> </div>
+            <div className="rolloverlogo"> <a href="https://github.com/mikeMedis"></a> </div>
         </div>
         </div>
       </div>
     );
   }
 });
-
-// <a href="http://www.marvel.com/comics"><img src="http://i.imgur.com/1iLZmSd.png" onmouseover="this.src='http://i.imgur.com/r92Kdlu.png'" onmouseout="this.src='http://i.imgur.com/1iLZmSd.png'" /></a>
