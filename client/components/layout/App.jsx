@@ -1,6 +1,5 @@
 var React = require('react');
 var Reqwest = require('reqwest');
-var SpewsView = require('../spews/View.jsx');
 var Menu = require('./Menu.jsx');
 var Router = require('react-router');
 var RouteHandler = Router.RouteHandler;
@@ -13,7 +12,6 @@ module.exports = React.createClass({
     return {origin: process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : ''};
   },
   getInitialState: function() {
-    console.log("hello");
     return {showMenu: false, signedIn: false, currentUser: {handle: ''}};
   },
   componentWillMount: function() {

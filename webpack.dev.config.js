@@ -6,7 +6,8 @@ config.plugins.push(
     "process.env": {
       "NODE_ENV": JSON.stringify("development"),
       "API_KEY" : JSON.stringify(require('./client/components/utils/keys.jsx').API_KEY),
-      "PRIV_KEY" : JSON.stringify(require('./client/components/utils/keys.jsx').PRIV_KEY)
+      "PRIV_KEY" : JSON.stringify(require('./client/components/utils/keys.jsx').PRIV_KEY),
+      "HUMAN_CLIENT_ID" : JSON.stringify(require('./client/components/utils/keys.jsx').HUMAN_CLIENT_ID)
     }
   })
 );

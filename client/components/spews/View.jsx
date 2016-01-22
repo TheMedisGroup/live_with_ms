@@ -2,7 +2,6 @@ var React = require('react');
 var Router = require('react-router');
 var SpewsList = require('./List.jsx');
 var SpewsForm = require('./Form.jsx');
-var MarvelBios = require('../layout/MarvelBios.jsx');
 var helpers = require('../utils/helpers.jsx');
 
 module.exports = React.createClass({
@@ -56,7 +55,7 @@ module.exports = React.createClass({
     var username = this.getParams().username;
 
     var bios = this.state.bios;
-    
+
 
     var marvelBios = function(){
       if (!bios.data){

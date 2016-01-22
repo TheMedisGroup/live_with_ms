@@ -1,6 +1,5 @@
 require('./assets/app.css');
 require('./assets/menu.css');
-require('./assets/spews.css');
 
 import React from 'react'
 import {browserHistory, Router, Route, Link} from 'react-router'
