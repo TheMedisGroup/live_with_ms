@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
-  attr_accessible :name
   validates :name, presence: true
+  acts_as_follower
+  acts_as_followable
+  acts_as_liker
+  acts_as_mentionable
 end
