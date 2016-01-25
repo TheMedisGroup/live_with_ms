@@ -49,33 +49,31 @@ module.exports = React.createClass({
   render: function() {
     if (this.props.signedIn) {
       var signingLink = <li><span onClick={this.handleSignOutLink}>logout</span></li>;
-      } else{
-        var signingLink = <li><a href={this.props.origin + '/request_token'}>login</a></li>;
-        }
-        return (
-          <div id="menu">
-            <span id="menu-link" onClick={this.props.sendMenuClick}><span></span></span>
-            <div id="menu-list">
-              <div className="pure-menu pure-menu-open">
-                <span className="pure-menu-heading"></span>
-                <ul>
-                  <li><Link to="search">Search</Link></li>
-                  <li><Link to="about">About</Link></li>
-                  <li></li>
-                  {signingLink}
-                  <span
-                    onClick={this.handleClickLink}>
-                    <img id='connect-health-data-btn'
-                      src='https://connect.humanapi.co/assets/button/blue.png'
-                    />
-                  </span>
-                </ul>
+    } else{
+      var signingLink = <li><a href={this.props.origin + '/request_token'}>Login</a></li>;
+    }
 
-                <p></p>
-                <p></p>
-              </div>
+    return (
+      <div id="menu">
+        <div className="container">
+          <ul className="nav nav-tabs">
+            <li><Link to="search">Search</Link></li>
+            <li><Link to="about">About</Link></li>
+            {signingLink}
+
+            <div className="pull-right">
+
+              <span
+                onClick={this.handleClickLink}>
+                <img id='connect-health-data-btn'
+                  src='https://connect.humanapi.co/assets/button/blue.png'
+                />
+              </span>
             </div>
-          </div>
-          );
-        }
-      });
+
+          </ul>
+        </div>
+      </div>
+      );
+    }
+  });

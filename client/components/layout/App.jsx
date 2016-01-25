@@ -71,13 +71,6 @@ module.exports = React.createClass({
     var menu = this.state.showMenu ? 'show-menu' : 'hide-menu';
     return (
       <div id="app" className={menu}>
-        <div className="container">
-          <ul className="nav nav-tabs">
-            <li><Link to="search">search</Link></li>
-            <li><Link to="about">about</Link></li>
-            <li><a href="">About</a></li>
-          </ul>
-        </div>
         <Menu origin={this.props.origin} sendMenuClick={this.handleMenuClick} signedIn={this.state.signedIn} />
         {this.props.children}
       </div>
