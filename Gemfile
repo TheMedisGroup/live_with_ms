@@ -30,8 +30,14 @@ gem 'aws-sdk', '~> 2'
 # Use Unicorn as the app server
 # gem 'unicorn'
 gem 'socialization'
+
 gem 'paperclip', '~> 4.3'
+
 gem 'public_activity'
+
+gem 'oauth'
+
+gem 'jwt'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'responders'

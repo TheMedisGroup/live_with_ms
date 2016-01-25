@@ -1,4 +1,6 @@
 class Comment < ActiveRecord::Base
+  validates_presence_of :comments
+
   belongs_to :user
   belongs_to :post
 

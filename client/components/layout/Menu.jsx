@@ -61,12 +61,16 @@ module.exports = React.createClass({
                 <ul>
                   <li><Link to="search">Search</Link></li>
                   <li><Link to="about">About</Link></li>
-                  <li>
-
-
+                  <li></li>
                   {signingLink}
-                  <li><span onClick={this.handleClickLink}><img id='connect-health-data-btn' src='https://connect.humanapi.co/assets/button/blue.png'/></span></li>
+                  <span
+                    onClick={this.handleClickLink}>
+                    <img id='connect-health-data-btn'
+                      src='https://connect.humanapi.co/assets/button/blue.png'
+                    />
+                  </span>
                 </ul>
+
                 <p></p>
                 <p></p>
               </div>

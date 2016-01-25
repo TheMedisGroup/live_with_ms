@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  validates_presence_of :uid, :handle
   validates :name, presence: true
 
   acts_as_follower

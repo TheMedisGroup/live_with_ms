@@ -1,10 +1,12 @@
 class CreateUsers < ActiveRecord::Migration
   def change
     create_table :users do |t|
+      t.string :uid, null: false
+      t.string :handle, null: false
       t.string :name
       t.trackable
-      t.timestamps null: true
-
+      t.timestamps null: false
     end
+    add_index :users, :uid
   end
 end

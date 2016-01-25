@@ -1,12 +1,12 @@
 Live with M.S.
 ---------------
-  A test app integrating stateless Ruby API using the rails-api gem, with a React client side app.
+  A test social networking application integrating stateless Ruby API using the rails-api gem, with a React client side app.
 
   For stateless, the Rails API does not include action-view, sprockets, or sessions.
 
   React replaces action-view, Webpack replaces sprockets, and JWT replaces sessions.
 
- <li><a target="_blank" target="http://getbootstrap.com/">bootstrap css</a> provides the aesthetics (linked via CDN in `index.html`)</li>
+  Bootstrap css, provides the aesthetics.
 
 ---------------
 ==first-time setup==
