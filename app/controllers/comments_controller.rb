@@ -1,17 +1,11 @@
 class CommentsController < ApplicationController
-  respond_to :json
+    before_filter :authenticate_user!, only: [:create, :destroy]
+    def create
+        @post = Post.find(params[:comment][:post_id])
+        @comment = Comment.new(params[:comment])
+        @comment.user = current_user
+        @comment.save
+        redirect_to @post
+    end
 
-  def index
-    respond_with Comment.all
-  end
-
-  def create
-    respond_with Comment.create(comment_params)
-  end
-
-  private
-
-  def comment_params
-    params.require(:comment).permit(:author, :comment)
-  end
 end
