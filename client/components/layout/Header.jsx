@@ -1,33 +1,43 @@
 var React = require('react');
 var Router = require('react-router');
 var Link = Router.Link;
-
-var HUMAN_CLIENT_ID = process.env['HUMAN_CLIENT_ID'];
+var Reqwest = require('reqwest');
+var HUMAN_CLIENT_ID = 'HUMAN_CLIENT_ID';
+var CLIENT_SECRET = 'CLIENT_SECRET';
 
 module.exports = React.createClass({
-  handleSignOutLink: function() {
-    var options = {
-      publicToken: 'PUBLIC_TOKEN_FOR_THE_USER'
-    }
-    HumanConnect.open(options);
-  },
-  handleClickLink: function(){
+
+  showHeader: function(){
     var options = {
       clientUserId: encodeURIComponent('UNIQUE_ID_FOR_YOUR_USER'),
       clientId: HUMAN_CLIENT_ID, // grab it from app settings page
       publicToken: '',  // Leave blank for new users
+      clientSecret: CLIENT_SECRET,
+      modal: 1,
 
       finish: function(err, sessionTokenObject) {
-        /* Called after user finishes connecting their health data
-        You need to post `sessionTokenObject` to your server to then:
-        1. Append your `clientSecret` to it
-        2. Send send it to our server for user credentials
-
-        Sending a POST request with jQuery might look like this
-        (it's not necessary to use jQuery):
-        */
         $.post('/your-servers-endpoint', sessionTokenObject, function(res){
+          app.post('/connect/finish', function(req, res) {
+            var sessionTokenObject = req.body;
+            sessionTokenObject.clientSecret = 'CLIENT_SECRET';
 
+            // send request to Human API
+            // Note: this example uses the node.js 'request' library
+            request({
+              method: 'POST',
+              uri: 'https://user.humanapi.co/v1/connect/tokens',
+              json: sessionTokenObject
+            }, function(err, resp, body) {
+              if(err) return res.send(422);
+
+              //returned payload from Human API
+              //store these values with your local user record
+              //you will need them to query data and to re-open Human Connect
+
+              res.send(201, body);
+            });
+
+          });
         });
 
         // Include code here to refresh the page.
@@ -54,7 +64,7 @@ module.exports = React.createClass({
     }
 
     return (
-      <div id="menu">
+      <div id="header">
         <div className="container">
           <ul className="nav nav-tabs">
             <li><Link to="search">Search</Link></li>
@@ -67,13 +77,13 @@ module.exports = React.createClass({
                 onClick={this.handleClickLink}>
                 <img id='connect-health-data-btn'
                   src='https://connect.humanapi.co/assets/button/blue.png'
-                />
+                  />
               </span>
             </div>
 
           </ul>
         </div>
       </div>
-      );
-    }
-  });
+    );
+  }
+});

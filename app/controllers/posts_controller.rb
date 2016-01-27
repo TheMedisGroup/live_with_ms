@@ -1,8 +1,7 @@
 class PostsController < ApplicationController
 
-  before_filter :authenticate_user!, only: [:create, :new, :edit, :destroy]
   def index
-    @posts = current_user.posts
+    @posts = current_user.posts(created_at: :desc)
 
     respond_to do |format|
       format.json { render json: @posts }
@@ -39,7 +38,7 @@ class PostsController < ApplicationController
       if @post.save
         format.json { render json: @post, status: :created, location: @post }
       else
-        format.json { render json: @post.errors, status: :unprocessable_entity }
+        format.json @post.errors, status: :unprocessable_entity
       end
     end
   end
